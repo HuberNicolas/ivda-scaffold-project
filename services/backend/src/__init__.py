@@ -5,6 +5,7 @@ from flask_restx import Resource, Api
 from flask_pymongo import PyMongo
 from pymongo.collection import Collection
 from .model import Company
+
 # Configure Flask & Flask-PyMongo:
 app = Flask(__name__)
 # allow access from any frontend
@@ -16,6 +17,8 @@ pymongo = PyMongo(app)
 # Get a reference to the companies collection.
 companies: Collection = pymongo.db.companies
 api = Api(app)
+
+
 class CompaniesList(Resource):
     def get(self, args=None):
         # retrieve the arguments and convert to a dict
@@ -29,6 +32,8 @@ class CompaniesList(Resource):
             cursor = companies.find(args)
         # we return all companies as json
         return [Company(**doc).to_json() for doc in cursor]
+
+
 class Companies(Resource):
     def get(self, id):
         import pandas as pd
@@ -58,12 +63,16 @@ class Companies(Resource):
             # add the value to profit list at position 0
             company.profit.insert(0, {'year': 2022, 'value': prediction_value})
         return company.to_json()
+
+
 class Ping(Resource):
     def get(self):
         return {
             'status': 'success',
             'message': 'pong!'
         }
+
+
 api.add_resource(Ping, '/ping')
 api.add_resource(CompaniesList, '/companies')
 api.add_resource(Companies, '/companies/<int:id>')

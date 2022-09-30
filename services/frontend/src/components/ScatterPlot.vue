@@ -10,10 +10,11 @@
 </template>
 <script>
 import Plotly from 'plotly.js/dist/plotly';
+
 export default {
   name: "ScatterPlot",
   props: [
-      "selectedCategory"
+    "selectedCategory"
   ],
   data: () => ({
     ScatterPlotData: {x: [], y: [], name: []},

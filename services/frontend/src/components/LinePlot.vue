@@ -10,6 +10,7 @@
 </template>
 <script>
 import Plotly from 'plotly.js/dist/plotly';
+
 export default {
   name: "LinePlot",
   props: ["selectedCompany", "selectedAlgorithm"],

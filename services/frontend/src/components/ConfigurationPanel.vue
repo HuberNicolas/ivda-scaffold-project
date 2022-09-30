@@ -4,26 +4,26 @@
       <v-row>
         <v-col cols="12" md="2" class="sideBar">
           <v-row>
-              <v-col cols="12" sm="12">
-                <div class="control-panel-font">Company Overview</div>
-              </v-col>
-            </v-row>
-            <v-row>
-              <v-col cols="12" sm="12">
-                <v-select
-                    :items="categories.values"
-                    label="Select a category"
-                    dense
-                    v-model="categories.selectedValue"
-                    @change="changeCategory"
-                ></v-select>
-              </v-col>
-            </v-row>
-            <v-row>
-              <v-col cols="12" sm="12">
-                <div class="control-panel-font">Profit View</div>
-              </v-col>
-            </v-row>
+            <v-col cols="12" sm="12">
+              <div class="control-panel-font">Company Overview</div>
+            </v-col>
+          </v-row>
+          <v-row>
+            <v-col cols="12" sm="12">
+              <v-select
+                  :items="categories.values"
+                  label="Select a category"
+                  dense
+                  v-model="categories.selectedValue"
+                  @change="changeCategory"
+              ></v-select>
+            </v-col>
+          </v-row>
+          <v-row>
+            <v-col cols="12" sm="12">
+              <div class="control-panel-font">Profit View</div>
+            </v-col>
+          </v-row>
           <v-row>
             <v-col cols="12" sm="12">
               <v-select
@@ -66,6 +66,7 @@
 <script>
 import ScatterPlot from './ScatterPlot';
 import LinePlot from './LinePlot';
+
 export default {
   components: {ScatterPlot, LinePlot},
   data: () => ({
@@ -112,6 +113,7 @@ export default {
   font-weight: 500;
   height: 40px;
 }
+
 .sideBar {
   border-right: 1px solid rgba(0, 0, 0, 0.1);
   background: #fafafa;
